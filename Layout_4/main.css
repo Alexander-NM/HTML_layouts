@@ -119,8 +119,6 @@ body {
 }
 
 /* Main container */
-
-/* Main container */
 /* Left side */
 .big-img-container {
   position: relative;
@@ -155,28 +153,22 @@ body {
 /* Main container */
 /* Right side */
 .small-img-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: stretch;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 33% 33% 33%;
     margin-right: 25px;
     padding: 0;
 }
 
-.column  img {
+.small-img  img {
   width: 100%;
-}
-
-.small-img {
-  flex-basis: 100px;
-  height: 100px;
-  flex-grow: 1;
-  margin: 5px;
-}
-
-.small-img img {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.small-img {
+  margin: 5px;
 }
 
 /* Footer */
