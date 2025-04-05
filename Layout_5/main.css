@@ -4,105 +4,161 @@
 
 /* Style the body */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
 }
 
 /* Header/logo Title */
 .header {
-  padding: .5em;
+  display: flow-root;
   text-align: center;
-  background: #1abc9c;
+  background: #57bae5a9;
   color: white;
 }
 
 /* Increase the font size of the heading */
 .header h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  text-shadow: 0 0 1px black;
+  margin: .5em 0;
 }
 
 /* Column container */
-.row {  
+.body-container {  
   display: flex;
   flex-wrap: wrap;
 }
 
-/* Main column */
-.main {   
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-  /* border: solid; */
-}
-
-.main iframe {
-  border: solid;
-  width: 100%;
-  height: 300px;
-  display: block;
-  margin: 0 auto;
-
-}
-
-.main .button-container {
-  margin-top: 1.2em;
-  margin-bottom: 2em;
-  display: flex;
-  /* gap: 2em; */
-  justify-content: space-between;
-}
-
-.main .button-container a {
-  padding: 1em 3em;
-  background-color: #aaa;
-  border-radius: 10px;
-  text-decoration: none;
-  cursor: pointer;
-  color: black;
-}
-
 /* Create two unequal columns that sits next to each other */
-/* Sidebar/right column */
-.side {
-  flex: 30%;
+/* Body/left column */
+.body-left-column {   
+  flex: 65%;
+  background-color: white;
+  padding: 10px 20px;
+}
+
+/* Body/Left column/Tabs */
+.tabs {
+  position: relative;
+  min-height: 200px;
+  clear: both;
+  margin: 25px 0 15px;
+  height: 50%;
+  display: flex;
+}
+
+.tab {
+  flex-shrink: 0;
+}
+
+.tab label {
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
+}
+
+.tab [type=radio] {
+  display: none;
+}
+
+.tab-content {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  /* padding: 20px; */
+  border: 1px solid #ccc;
+}
+
+.tab-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+[type=radio]:checked~label {
+  background: white;
+  border-top: 2px solid #57bae5a9;
+  z-index: 2;
+}
+
+[type=radio]:checked~.tab-content {
+  z-index: 1;
+}
+
+/* Body/left-column/gallery */
+/* Center website */
+.gallery-container {
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Create four equal columns that floats next to each other */
+.gallery-container>.item {
+  flex-grow: 1;
+  flex-basis: 22%;
+  height: 50%;
+}
+
+/* Content */
+.item-content {
+  background-color: #57bae51c;
+  height: 100%;
+  overflow: hidden;
+}
+
+.item-content img {
+  height: 60%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.item-content  p {
+  font-size: .8rem;
+  text-align: center;
+  color: initial;
+  text-decoration: none;
+  padding: .7em;
+  margin: 0;
+}
+
+.item-content > a {
+  text-decoration: none;
+}
+
+.item-content > a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+      /* width: 50%; */
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+      /* width: 100%; */
+  }
+}
+
+
+/* Body/right column */
+.body-right-column {
+  flex: 35%;
   background-color: #f1f1f1;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
-.side .fakeimg {
-  flex: 70%;
-}
-
-.side .article {
-  flex: 30%;
-}
-
-.side > .article > .fakeimg {
-  float: left;
-  width: unset;
-  margin-right: 10px;
-  padding: 30px 20px;
-}
-
-.side > .article .read-more {
-  /* display: inline-block; */
-  padding: .5em 1em;
-  /* background: #aaa; */
-  margin-top: .5em;
-  font-size: .8rem;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 10px;
-  color: black;
-
-}
-
-.side > .article .read-more:hover {
-  text-decoration: underline;
-  font-weight: bold;
-}
 
 /* Fake image, just for this example */
 .fakeimg {
@@ -111,16 +167,19 @@ body {
   padding: 20px;
 }
 
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-}
+
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row {   
     flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
   }
 }

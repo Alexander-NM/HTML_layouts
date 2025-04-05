@@ -67,7 +67,7 @@
   }
   
   /* Create two unequal columns that sits next to each other */
-  /* Sidebar/left column */
+  /* Sidebar/right column */
   .side {
     -ms-flex: 30%; /* IE10 */
     flex: 30%;
