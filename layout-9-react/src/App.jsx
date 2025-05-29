@@ -1,12 +1,29 @@
 import { useState } from "react"
-import "./styling/App.css"
+import "./styling/app.css"
+import ContactForm from "./components/ContactForm"
+import Header from "./components/Header"
+import ContactInformation from "./components/ContactInformation"
 
 function App() {
-    const [count, setCount] = useState(0)
+    const [isSubmitted, setIsSubmitted] = useState(false)
+
+    function handlerSubmit(e) {
+        e.preventDefault()
+        setIsSubmitted(prev => !prev)
+    }
 
     return (
         <>
-            <h1>Hello</h1>
+            <Header />
+            <div className="page-container">
+                <div className="left-side">
+                    {!isSubmitted && <ContactForm handlerSubmit={handlerSubmit}/>}
+                    {isSubmitted && <p>Thank you for information</p>}
+                </div>
+                <div className="right-side">
+                    <ContactInformation />
+                </div>
+            </div>
         </>
     )
 }
