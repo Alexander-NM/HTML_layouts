@@ -1,5 +1,5 @@
 fetch(
-    "https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&count=5"
+    "https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&count=20"
 )
     .then((res) => res.json())
     .then((data) => {
